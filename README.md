@@ -1,36 +1,132 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Bedrock AI Chatbot 🤖
 
-## Getting Started
+Interfaz minimalista de chatbot para interactuar con tu agente de AWS Bedrock. Desarrollado con Next.js 16 y Tailwind CSS.
 
-First, run the development server:
+## 🚀 Características
+
+- ✨ Interfaz simple y minimalista
+- 🔄 Comunicación en tiempo real con AWS Bedrock
+- 📱 Diseño responsive
+- ⚡ Despliegue sencillo en Vercel
+- 🎨 Estilo moderno con Tailwind CSS
+
+## 📋 Requisitos Previos
+
+- Node.js 18+ instalado
+- Cuenta de AWS con acceso a Bedrock
+- Agente de Bedrock creado y configurado
+- Credenciales de AWS (Access Key ID y Secret Access Key)
+
+## 🛠️ Instalación
+
+1. Clona el repositorio o descarga los archivos
+
+2. Instala las dependencias:
+```bash
+npm install
+```
+
+3. Configura las variables de entorno:
+   - Copia el archivo `.env.example` a `.env.local`
+   - Completa las variables con tus credenciales:
+
+```env
+AWS_REGION=us-east-1
+AWS_ACCESS_KEY_ID=tu_access_key_id
+AWS_SECRET_ACCESS_KEY=tu_secret_access_key
+BEDROCK_AGENT_ID=tu_agent_id
+BEDROCK_AGENT_ALIAS_ID=tu_agent_alias_id
+```
+
+## 🎯 Uso Local
+
+Ejecuta el servidor de desarrollo:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abre [http://localhost:3000](http://localhost:3000) en tu navegador.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 🌐 Despliegue en Vercel
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Opción 1: Desde GitHub
 
-## Learn More
+1. Sube tu código a un repositorio de GitHub
+2. Ve a [vercel.com](https://vercel.com) e inicia sesión
+3. Haz clic en "Add New Project"
+4. Importa tu repositorio
+5. Agrega las variables de entorno en la configuración
+6. Haz clic en "Deploy"
 
-To learn more about Next.js, take a look at the following resources:
+### Opción 2: CLI de Vercel
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm install -g vercel
+vercel
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Sigue las instrucciones y asegúrate de agregar las variables de entorno.
 
-## Deploy on Vercel
+## ⚠️ Variables de Entorno en Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Asegúrate de configurar todas las variables de entorno en Vercel:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Ve a tu proyecto en Vercel
+2. Navega a Settings → Environment Variables
+3. Agrega cada variable:
+   - `AWS_REGION`
+   - `AWS_ACCESS_KEY_ID`
+   - `AWS_SECRET_ACCESS_KEY`
+   - `BEDROCK_AGENT_ID`
+   - `BEDROCK_AGENT_ALIAS_ID`
+
+## 📂 Estructura del Proyecto
+
+```
+bedrock-chatbot/
+├── app/
+│   ├── api/
+│   │   └── chat/
+│   │       └── route.js       # API endpoint para Bedrock
+│   ├── components/
+│   │   └── ChatBot.js         # Componente principal del chat
+│   ├── globals.css            # Estilos globales
+│   ├── layout.js              # Layout principal
+│   └── page.js                # Página de inicio
+├── .env.local                 # Variables de entorno (no subir a git)
+├── .env.example               # Ejemplo de variables de entorno
+└── package.json
+```
+
+## 🔧 Tecnologías
+
+- **Next.js 16**: Framework de React
+- **React 19**: Biblioteca de UI
+- **Tailwind CSS 4**: Framework de CSS
+- **AWS SDK**: Cliente de Bedrock Agent Runtime
+
+## 🤝 Obtener Credenciales de AWS
+
+1. Inicia sesión en AWS Console
+2. Ve a IAM → Users → Tu usuario
+3. Pestaña "Security credentials"
+4. Crea un nuevo Access Key
+5. Descarga y guarda las credenciales de forma segura
+
+## 📝 Notas de Seguridad
+
+- **NUNCA** subas el archivo `.env.local` a git
+- Usa variables de entorno en Vercel para producción
+- Mantén tus credenciales de AWS seguras
+- Considera usar IAM roles en lugar de access keys cuando sea posible
+
+## 📖 Más Información
+
+- [Documentación de Next.js](https://nextjs.org/docs)
+- [AWS Bedrock Documentation](https://docs.aws.amazon.com/bedrock/)
+- [Vercel Documentation](https://vercel.com/docs)
+
+## 📄 Licencia
+
+Este proyecto es de código abierto y está disponible bajo la licencia MIT.
